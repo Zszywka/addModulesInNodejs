@@ -1,6 +1,3 @@
-// 'os' module import
-var os = require('os');
-
 process.stdin.setEncoding('utf-8');
 process.stdin.on('readable', function() {
   var input = process.stdin.read();
@@ -14,7 +11,9 @@ process.stdin.on('readable', function() {
       case 'sayhello':
         process.stdout.write('hello!\n');
         break;
-      case 'getOSinfo()'
+      case 'getOSinfo':
+      // using the imported function [var OSinfo --> 25line][.print -->25 line in modules/OSinfo.js]
+        OSinfo.print();
         break;
       default:
         process.stderr.write('Wrong instruction!\n');
@@ -22,5 +21,6 @@ process.stdin.on('readable', function() {
   }
 });
 
-// var OSinfo = require('./OSinfo');
-var OSinfo = require('../modules/OSInfo');
+// var OSInfo = require('./OSInfo');
+// using the created module
+var OSinfo = require('../modules/OSinfo');
