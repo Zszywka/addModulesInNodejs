@@ -11,19 +11,31 @@ function secondsForMinutesAndHours() {
     var minutes = ((allTimes - hours)*100).toFixed(0);
     var minutesWithSeconds = ((allTimes - hours)*100);
     var seconds = ((minutesWithSeconds - minutes)*100).toFixed(0);
-    console.log('Uptime: ~ ', hours , 'hours');
-    console.log('Uptime: ~ ', minutes, 'minutes');
+    var consoleHours = hours;
+    if(minutes > 0) {
+      var consoleMinutes = minutes;
       if(seconds > 0) {
-        console.log('Uptime: ~ ', seconds, 'seconds');
+        console.log('Uptime: ~ ', consoleHours,'hours,', consoleMinutes,'minutes and', seconds, 'seconds.');
       } else {
-        console.log('Uptime: ~ 0 seconds');
+        console.log('Uptime:~ ', consoleHours,'hours,', consoleMinutes,'minutes',' and 0 seconds.');
       };
+    } else {
+      var consoleMinutes = 0;
+      if(seconds > 0) {
+        console.log('Uptime:~ ', consoleHours,'hours,', consoleMinutes,'minutes', seconds, 'seconds');
+      } else {
+        console.log('Uptime:~ only', consoleHours,'hours.');
+      }
+    };
   } else {
-    console.log('Uptime: ~',minutes , 'minutes');
-    console.log('Uptime: ~',seconds, 'seconds');
+      if(seconds > 0) {
+        console.log('Uptime: ~ ',minutes , 'minutes and ', seconds, 'seconds');
+      } else {
+        console.log('Uptime: ~',minutes , 'minutes and 0 seconds');
+      };
   };
 
-  console.log('Uptime: ~', uptime, 'all');
-}
+  console.log('Uptime: ~', uptime, 'all time in seconds');
+};
 
 exports.timeInMinutes = secondsForMinutesAndHours;
