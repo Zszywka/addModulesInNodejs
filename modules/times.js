@@ -1,4 +1,5 @@
 var os = require('os');
+var colors = require('colors');
 
 function secondsForMinutesAndHours() {
   var uptime = os.uptime();
@@ -15,27 +16,27 @@ function secondsForMinutesAndHours() {
     if(minutes > 0) {
       var consoleMinutes = minutes;
       if(seconds > 0) {
-        console.log('Uptime: ~ ', consoleHours,'hours,', consoleMinutes,'minutes and', seconds, 'seconds.');
+        console.log('Uptime: ~'.green, consoleHours,'hours,', consoleMinutes,'minutes and', seconds, 'seconds.');
       } else {
-        console.log('Uptime:~ ', consoleHours,'hours,', consoleMinutes,'minutes',' and 0 seconds.');
+        console.log('Uptime: ~'.green, consoleHours,'hours,', consoleMinutes,'minutes',' and 0 seconds.');
       };
     } else {
       var consoleMinutes = 0;
       if(seconds > 0) {
-        console.log('Uptime:~ ', consoleHours,'hours,', consoleMinutes,'minutes', seconds, 'seconds');
+        console.log('Uptime: ~'.green, consoleHours,'hours,', consoleMinutes,'minutes', seconds, 'seconds');
       } else {
-        console.log('Uptime:~ only', consoleHours,'hours.');
+        console.log('Uptime: ~'.green, consoleHours,'hours.');
       }
     };
   } else {
       if(seconds > 0) {
-        console.log('Uptime: ~ ',minutes , 'minutes and ', seconds, 'seconds');
+        console.log('Uptime: ~'.green,minutes , 'minutes and ', seconds, 'seconds');
       } else {
-        console.log('Uptime: ~',minutes , 'minutes and 0 seconds');
+        console.log('Uptime: ~'.green,minutes , 'minutes and 0 seconds');
       };
   };
 
-  console.log('Uptime: ~', uptime, 'all time in seconds');
+  console.log('Uptime: ~'.green, uptime, 'all time in seconds');
 };
 
 exports.timeInMinutes = secondsForMinutesAndHours;
