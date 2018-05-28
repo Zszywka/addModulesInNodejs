@@ -5,6 +5,7 @@ var EventEmitter = require("events").EventEmitter;
 var OSinfo = require('./modules/OSinfo');
 
 var emitter = new EventEmitter();
+// emitter.on is like .addEventListener()
 emitter.on("beforeCommand", function (instruction) {
     console.log('start--> You wrote: ' + instruction + ', trying to run command');
 });
@@ -38,4 +39,5 @@ process.stdin.on('readable', function() {
     }
 });
 
+// there is function in other files(other module)
 var OSinfo = require('./modules/OSinfo');
